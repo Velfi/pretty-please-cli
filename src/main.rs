@@ -8,7 +8,6 @@ struct Args {
     /// Path of the rust file to format
     #[arg(short, long)]
     input: PathBuf,
-
     /// Path of the file the formatted code will be written to.
     #[arg(short, long)]
     output: Option<PathBuf>,
@@ -16,10 +15,8 @@ struct Args {
 
 fn main() {
     let args = Args::parse();
-
     let f = std::fs::read_to_string(&args.input).unwrap();
     let syntax_tree = syn::parse_file(&f).unwrap();
     let formatted = prettyplease::unparse(&syntax_tree);
-
     std::fs::write(args.output.unwrap_or(args.input), formatted).unwrap();
 }
