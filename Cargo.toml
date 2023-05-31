@@ -1,0 +1,11 @@
+[package]
+name = "prpl"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+clap = { version = "4.0.14", features = ["derive"] }
+prettyplease = "0.1.20"
+syn = { version = "1.0.102", default-features = false, features = ["full", "parsing"] }
